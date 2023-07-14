@@ -1,0 +1,9 @@
+body
+{
+    margin-right: 15px;
+    margin-left: 15px;
+    background-image:  linear-gradient(to right,rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url(../assets/img/library1-transformed.jpeg) !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: rgb(240, 240, 240); */
+}
