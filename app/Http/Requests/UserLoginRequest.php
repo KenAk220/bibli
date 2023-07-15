@@ -23,8 +23,7 @@ class UserLoginRequest extends FormRequest
     {
         return [
             "email" => 'required|email',
-            "password" => 'required|min:8',
-            "confirm" => 'required|min:8|same:password'
+            "password" => 'required|min:8'
         ];
     }
 
@@ -35,10 +34,7 @@ class UserLoginRequest extends FormRequest
             'email.required' => 'Le champ email est requis',
             'email.min' => 'Le champ email doit être un mail',
             'password.required' => 'Le champ password est requis',
-            'password.min' => 'Le champ password doit comporter au moins 8 caractères',
-            'confirm.required' => 'Le champ confirmation du password est requis',
-            'confirm.min' => 'Le champ confirmation du password doit comporter au moins 8 caractères',
-            'confirm.same' => 'La confirmation du password doit être identique au password',
+            'password.min' => 'Le champ password doit comporter au moins 8 caractères'
            
         ];
     }

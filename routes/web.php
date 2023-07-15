@@ -21,6 +21,7 @@ Route::post('/register', [MainController::class, 'inscription']);
 Route::get('/connexion', function(){  return view('connexion'); });
 Route::post('/connexion', [MainController::class, 'connexion']);
 
+Route::get('dashboard', function(){  return 'Je suis connecté'; });
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');

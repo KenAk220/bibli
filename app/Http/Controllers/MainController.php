@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\validateFormRequest;
 use App\Http\Requests\UserLoginRequest;
-use App\Models\etudiant;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,9 +13,9 @@ class MainController extends Controller
 {
     public function index(){
         
-        $etudiants = etudiant::all();
+        $users = User::all();
         return view('index', [
-            'etudiants' => $etudiants
+            'users' => $users
         ]);
     }
 
@@ -23,12 +23,13 @@ class MainController extends Controller
         
         $credentials = $request->validate([
             "email" => ['required', 'email'],
-            "password" => ['required'],
-            "confirm"=>['required']
+            "password" => ['required']
         ]);
+
+        $credentials['password'] = sha1($credentials['password']);
       
         //SELECT * FROM users WHERE email = $email && password = $password && confirm = $confirm
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])){
             $request->session()->regenerate();
             return redirect()->intended('accueil');
        }else{
@@ -39,10 +40,10 @@ class MainController extends Controller
 
     
 
-    public function inscription(etudiant $etudiant,validateFormRequest $request){
+    public function inscription(User $user,validateFormRequest $request){
         
         //dd($request);
-        etudiant::create([
+        user::create([
             "name" => $request->nom,
             "surname" => $request->prenom,
             "country" => $request->pays,

@@ -32,8 +32,8 @@
             </div>
             <ul class="list-group">
 
-                @forelse ($etudiants as $etudiant)
-                    <li class="list-group-item">{{ $etudiant->name }}<br>{{ $etudiant->surname }}</li>
+                @forelse ($users as $user)
+                    <li class="list-group-item">{{ $user->name }}<br>{{ $user->surname }}</li>
                 @empty
                     <p class="text text-info">Rien trouvé</p>
                 @endforelse

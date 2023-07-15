@@ -31,13 +31,7 @@
                         @enderror
                      </div>
 
-                     <div class="col-md-12">
-                        <input type="password" id="form3Example4cd" class="form-control" name="confirm" placeholder="Confirmation de password"/>
-                        @error('confirm')
-                        <div class="alert alert-info">{{ $message }}</div>
-                        @enderror
-                     </div>
-
+                    
 
                    
                
